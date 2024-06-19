@@ -2,14 +2,14 @@
 
 ## Welche Ressource wird geschützt?
 
-Es wird ein "vermittelter" Zugriffsschutz umgesetzt, in dem nicht die einzelnen Dateien zugriffsgeschützt werden, sondern der "virtuelle" Ordner, in welchem die Dateien abgelegt sind.
+Es wird ein "vermittelter" Zugriffsschutz umgesetzt, in dem nicht die einzelnen Dateien zugriffsgeschützt werden, sondern der "virtuelle" Ordner, über den via HTTPS auf die Dateien zugegriffen wird.
 Der virtuelle Ordner ist nichts weiteres wie der Pfadteil des entsprechenden HTTPS-Zugriffs auf die Datei. Der Zugriffsschutz wird ausschliesslich für das Protokoll HTTPS, Verb GET umgesetzt.
 
 Durch dieses generische Konzept ist es nicht mehr von Bedeutung, ob die Dateien irgendwo physisch abgelegt sind, oder jeweils mit dem Request eines Benutzers zur Laufzeit erstellt werden.
 
 Das Konzept wird angewendet auf:
 * Den Datenbezug durch Schutz der Zugriffe auf files.geo.so.ch (Damit ist auch data.geo.so.ch geschützt)
-* Dynamisch erzeugte Objektblätter / Listen zu einem Feature, Layer oder einer Themenbereitstellung ("Reports")
+* Dynamisch erzeugte Objektblätter / Listen zu einem Feature, Layer oder einer Themenbereitstellung (= "Reports")
 * Statisch abgelegte Dateien / Dokumente zu einem Feature, Layer oder einer Themenbereitstellung (A la geo.so.ch/docs)
 
 ### Beispiele "virtueller" Ordner
@@ -22,7 +22,7 @@ Pfadteil des virtuellen Ordners jeweils in Klammern:
 
 Die Zugriffsberechtigung auf eine Themenbereitstellung erfolgt automatisch aufgrund der in der Bereitstellung enthaltenen Einzellayer. Die Berechtigungen werden also auf den Einzellayern (= DataSetView) in Geoserver gepflegt.
 
-Auf diese Weise ist der Zugriff für Facadelayer und Layergruppen in SIMI umgesetzt. Funktioniert problemlos.
+Kontext: Auf diese Weise ist der Zugriff für Facadelayer und Layergruppen in SIMI umgesetzt. Funktioniert problemlos.
 
 ## Umsetzungsvarianten
 
@@ -36,9 +36,9 @@ Das Plugin kümmert sich einzig um die Frage, ob ein Request aufgrund des in der
 
 ![gateway](./gateway.svg)
 
-Aus dem access management resultiert die inhaltlich spezifische Konfiguration für den API-Gateway.
+Aus dem access management resultiert die spezifische Konfiguration für den API-Gateway als XTF.
 
-Die Formatumwandlung in das Format der spezifischen Gateway-Konfiguration liegt in der Verantwortung der funktionalen Einheit "API-Gateway".
+Die Formatumwandlung in das Format der Gateway-Konfiguration liegt in der Verantwortung der funktionalen Einheit "API-Gateway".
 
 Der API-Gateway gewährt oder blockiert die Zugriffe auf die Endpunkte der Ressourcen.
 
@@ -55,7 +55,7 @@ Mögliche Gateways: Tyk, Kong, APISIX, KrakenD
 ## Anträge
 
 * Die Umsetzung via virtuelle Ordner über HTTPS wird freigegeben.
-* Umgesetzt wird die Variante XXX. Deren Ausdetaillierung erfolgt im entsprechenden Umsetzungsprojekt.
+    * Umgesetzt wird die Variante XXX. Deren Ausdetaillierung erfolgt im entsprechenden Umsetzungsprojekt.
 
 
 
