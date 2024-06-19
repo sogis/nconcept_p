@@ -1,0 +1,18 @@
+@startuml
+
+component "api-gateway" as gate
+
+node geoserver as gs {
+  component bouncer as bc
+}
+
+component "geo.so.ch/docs" as docs
+component "files.geo.so.ch" as geo
+component "geo.so.ch/documents" as rep
+
+gate -- bc
+bc -- docs
+bc -- geo
+bc -- rep
+
+@enduml

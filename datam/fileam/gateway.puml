@@ -1,0 +1,32 @@
+@startuml
+cloud "access management" as am {
+  component geoserver as gs
+  component fuu
+  component bar
+
+  file gateway_access_conf.xtf as xtf
+
+  gs --> xtf
+  fuu --> xtf
+  bar --> xtf
+}
+
+cloud "Zugreifende Clients" as clients
+
+package "FE api-gateway" as pkg {
+  component "api-gateway" as gate
+  file gateway_access_conf.xyz as gateconf
+}
+
+clients -- gate
+
+xtf --> gateconf
+
+component "geo.so.ch/docs" as docs
+component "files.geo.so.ch" as geo
+component "geo.so.ch/documents" as rep
+
+gate -- docs
+gate -- geo
+gate -- rep
+@enduml
