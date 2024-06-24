@@ -18,7 +18,7 @@ Pfadteil des virtuellen Ordners jeweils in Klammern:
 * https://files.geo.so.ch/(ch.bl.agi.lidar_2018.dtm_hillshade)/aktuell/ch.bl.agi.lidar_2018.dtm_hillshade.tif
 * https://geo.so.ch/docs/(ch.so.afu.bodenprofile)/2401-11-T.png
 
-### Konfiguration Layerzugriff <> Zugriff Themenbereitstellung
+### Aus Konfiguration Layerzugriff folgt Zugriffsregel für die Themenbereitstellung
 
 Die Zugriffsberechtigung auf eine Themenbereitstellung erfolgt automatisch aufgrund der in der Bereitstellung enthaltenen Einzellayer. Die Berechtigungen werden also auf den Einzellayern (= DataSetView) in Geoserver gepflegt.
 
