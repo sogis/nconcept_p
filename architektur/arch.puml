@@ -1,0 +1,46 @@
+@startuml
+
+package "SOGIS Clients" {
+  component "Web GIS Client (W)" as wgc
+  component "Datenbezug (B)" as bezug
+  component "SO Locator (L)" as loc
+}
+
+component "Other Client (O)" as oc
+
+package API {
+  component "WMS (M)" as wms
+  component "Reports (R)" as rep  
+  component "Suche (S)" as s
+  component "Dataservice (D)" as data
+  component "CCC (C)" as CCC
+
+  rep -right-> wms
+}
+
+component "WMS Ext (E)" as wmsext
+
+wgc --> wms
+wgc --> wmsext
+wgc --> s
+wgc --> data : WD: Für Featureanzeige und Edit
+wgc --> rep
+
+loc --> wms
+loc --> wmsext
+loc --> s : LS: Nur Ebenen
+
+oc --> wms
+
+
+legend
+  Die Druckfunktionalitäten sind als "interne" Teile des WGC nicht abgebildet. 
+  Lösung im Rahmen von AP "WGC Update".
+
+  Der Dataservice kann erst nach Next durch OGC API Features abgelöst werden, 
+  da wir "Write"-Funktionalität brauchen.
+
+  WMS bietet text und html an als FeatureInfo. Offen ist gute Lösung für die
+  übermittlung der Geometrie.
+end legend
+@enduml
